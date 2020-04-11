@@ -1,0 +1,119 @@
+{% extends 'doctors.html' %}
+{% block title%} {{doctor.name}} - My Awesome Cart{% endblock %}
+{% block body %}
+<!DOCTYPE html>
+<Html>
+<head>
+<title>Book Appointment</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+	<style type="text/css">
+		.container {
+			margin-top: 40px;
+		}
+		.btn-primary {
+			width: 100%;
+		}
+	</style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script type='text/javascript'>
+		$( document ).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+            format:'YYYY-MM-DD HH:mm'
+         });
+		});
+	</script>
+
+</head>
+<body>
+
+ <div class="col-md-8">
+        <b>About</b>
+        <h5>Name:{{doctor.name}}</h5>
+        <h5>Age:{{doctor.age}}</h5>
+ </div>
+
+
+
+<div class="container">
+   <div class="panel panel-primary">
+      <div class="panel-heading">Book an Appointent with  <h5>{{doctor.name}}</h5></div>
+      <form action = 'book' method="POST">
+                        {% csrf_token %}
+         <input type ="hidden" name ="itemsJson" id=" itemsJson">
+         <input type ="hidden" name ="o_amount" id=" o_amount">
+         <input type ="hidden" name ="user_id" id="user_id">
+
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">First Name</label>
+                  <input type="text" class="form-control" name="fname" id="fname">
+                  <label class="control-label">Address</label>
+                  <input type="text" class="form-control" name="adress" id="fname">
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Last Name</label>
+                  <input type="text" class="form-control" name="lname" id="lname">
+                  <label class="control-label">Phone Number</label>
+                  <input type="text" class="form-control" name="phone" id="lname">
+               </div>
+            </div>
+         </div>
+
+         <div class="row">
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Email</label>
+                  <input type="text" class="form-control" name="email" id="email">
+               </div>
+            </div>
+            <div class='col-md-6'>
+               <div class="form-group">
+                  <label class="control-label">Appointment Time</label>
+                  <div class='input-group date' id='datetimepicker1'>
+                     <input type='text' class="form-control" name="date_time" />
+                     <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <input type="submit" class="btn btn-primary" value="Book Now">
+      </div>
+   </div>
+</div>
+</form>
+
+
+<h3 align ="center">
+   <font color ="#6495ed" face ="chiller">
+      {{message}}
+   </font>
+</h3>
+</body>
+{% endblock %}
+
+{% block js %}
+<script>
+if (localStorage.getItem('cart') == null) {
+    var cart = {};
+} else {
+    cart = JSON.parse(localStorage.getItem('cart'));
+}
+
+
+</script>
+{% endblock %}
+
+</html>

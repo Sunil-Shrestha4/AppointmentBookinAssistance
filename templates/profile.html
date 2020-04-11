@@ -1,0 +1,363 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from bslthemes.com/ryan/demo/index-new-no-photo.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Mar 2020 01:33:45 GMT -->
+<head>
+	
+	<!--
+		Basic
+	-->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+	<title>Doctor profile</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+	<meta name="description" content="vCard & Resume Template" />
+	<meta name="keywords" content="vcard, resposnive, resume, personal, card, cv, cards, portfolio" />
+	<meta name="author" content="beshleyua" />
+
+	<!--
+		Load Fonts
+	-->
+	<link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<!--	<link rel="stylesheet" href="../../../use.fontawesome.com/releases/v5.8.0/css/all.css">-->
+
+	<!--
+		Load CSS
+	-->
+	<link rel="stylesheet" href="{% static 'assets/profile/css/basic.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/profile/css/layout.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/profile/css/blogs.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/profile/css/ionicons.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/profile/css/magnific-popup.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/profile/css/animate.css' %}" />
+	<link rel="stylesheet" href="{% static 'assets/profile/css/owl.carousel.css' %}" />
+
+	<link href="{% static 'assets/profile/vendor/select2/select2.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/profile/vendor/datepicker/daterangepicker.css' %}" rel="stylesheet" media="all">
+	<link href="{% static 'assets/profile/vendor/mdi-font/css/material-design-iconic-font.min.css' %}" rel="stylesheet" media="all">
+    <link href="{% static 'assets/profile/vendor/font-awesome-4.7/css/font-awesome.min.css' %}" rel="stylesheet" media="all">
+
+	<!--
+		Background Gradient
+	-->
+	<link rel="stylesheet" href="{% static 'assets/profile/css/gradient.css' %}" />
+	
+	<!--
+		Template New-Skin
+	-->
+	<link rel="stylesheet" href="{% static 'assets/profile/css/new-skin/new-skin.css' %}" />
+
+	<!--
+		Template RTL
+	-->
+	<!--<link rel="stylesheet" href="css/rtl.css" />-->
+	
+	<!--
+		Template Colors
+	-->
+	<link rel="stylesheet" href="{% static 'assets/profile/css/template-colors/green.css' %}" />
+	<!--<link rel="stylesheet" href="css/template-colors/blue.css" />-->
+	<!--<link rel="stylesheet" href="css/template-colors/orange.css" />-->
+	<!--<link rel="stylesheet" href="css/template-colors/pink.css" />-->
+	<!--<link rel="stylesheet" href="css/template-colors/purple.css" />-->
+	<!--<link rel="stylesheet" href="css/template-colors/red.css" />-->
+
+	<!--
+		Template Dark
+	-->
+	<!--<link rel="stylesheet" href="css/template-dark/dark.css" />-->
+	
+
+	<!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	
+	<!--
+		Favicons
+	-->
+	<link rel="shortcut icon" href="{% static 'assets/profile/images/favicons/favicon.ico' %}">
+	
+</head>
+
+<body>
+	<div class="page new-skin">
+		
+		<!-- preloader -->
+		<div class="preloader">
+			<div class="centrize full-width">
+				<div class="vertical-center">
+					<div class="spinner">
+						<div class="double-bounce1"></div>
+						<div class="double-bounce2"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- background -->
+		<div class="background gradient">
+			<ul class="bg-bubbles">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+		</div>
+
+		<!--
+			Container
+		-->
+		<div class="container opened" data-animation-in="fadeInLeft" data-animation-out="fadeOutLeft">
+
+			<!--
+				Header
+			-->
+			<header class="header">
+
+				<!-- menu -->
+				<div class="top-menu">
+					<ul>
+						<li class="active">
+							<a href="#about-card">
+								<span class="icon ion-person"></span>
+								<span class="link">About</span>
+							</a>
+						</li>
+						<li>
+							<a href="#resume-card">
+								<span class="icon ion-android-list"></span>
+								<span class="link">Resume</span>
+							</a>
+						</li>
+					</div>
+
+			</header>
+
+			<!--
+				Card - Started
+			-->
+			{% extends 'doctors.html' %}
+
+			{% block title%} {{doctor.name}} - My Awesome Cart{% endblock %}
+
+
+			<div class="card-started" id="home-card">
+
+				<!--
+					Profile
+				-->
+				<div class="profile no-photo">
+
+					<!-- profile image -->
+					        <img src="/media/{{doctor.img}}" width="233px" height="385px">
+
+
+					<!-- profile photo -->
+					<div class="image">
+						<img src="{% static 'assets/profile/images/profile.png' %}" alt="" />
+					</div>
+
+					<!-- profile titles -->
+					<div class="title">{{doctor.name}}</div>
+					<div class="subtitle">{{doctor.Specialist}}</div>
+
+					<!-- profile socials -->
+					<div class="social">
+						<a target="_blank" href="https://dribbble.com/"><span class="fab fa-dribbble"></span></a>
+						<a target="_blank" href="https://twitter.com/"><span class="fab fa-twitter"></span></a>
+						<a target="_blank" href="https://github.com/"><span class="fab fa-github"></span></a>
+						<a target="_blank" href="https://www.spotify.com/"><span class="fab fa-spotify"></span></a>
+						<a target="_blank" href="https://stackoverflow.com/"><span class="fab fa-stack-overflow"></span></a>
+					</div>
+
+					<!-- profile buttons -->
+					<div class="lnks">
+						<a href="datetime-picker" class="lnk">
+							<span class="text">Print Appointment</span>
+							<span class="ion ion-archive"></span>
+						</a>
+						<a href="#" class="lnk discover">
+							<span class="text">Book Appointment</span>
+							<span class="arrow"></span>
+						</a>
+					</div>
+
+				</div>
+
+			</div>
+
+			<!--
+				Card - About
+			-->
+			<div class="card-inner animated active" id="about-card">
+				<div class="card-wrap">
+
+					<!--
+						About
+					-->
+					<div class="content about">
+
+						<!-- title -->
+						<div class="title">About Me</div>
+
+						<!-- content -->
+						<div class="row">
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="text-box">
+									<p>{{doctor.desc}}</p>
+								</div>
+							</div>
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="info-list">
+									<ul>
+										<li><strong>Age . . . . .</strong>{{doctor.age}}</li>
+										<li><strong>Phone Number . . . . .</strong> {{doctor.phone_number}}</li>
+									</ul>
+								</div>
+							</div>
+							<div class="clear"></div>
+						</div>
+
+					</div>
+
+					<!--
+						Services
+					-->
+					<div class="content services">
+
+						<!-- title -->
+						<div class="title">My Services</div>
+
+						<!-- content -->
+						<div class="row service-items border-line-v">
+
+							<!-- service item -->
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+								<div class="service-item">
+									<div class="icon"><span class="ion ion-code"></span></div>
+									<div class="name"></div>
+									<p>{{doctor.Service1}}</p>
+								</div>
+							</div>
+
+							<!-- service item -->
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-h">
+								<div class="service-item">
+									<div class="icon"><span class="ion ion-music-note"></span></div>
+									<div class="name"></div>
+									<p>{{doctor.Service2}}</p>
+								</div>
+							</div>
+
+							<!-- service item -->
+							<div class="col col-d-6 col-t-6 col-m-12">
+								<div class="service-item">
+									<div class="icon"><span class="ion ion-speakerphone"></span></div>
+									<div class="name">Advetising</div>
+									<p>{{doctor.Service3}}</p>
+								</div>
+							</div>
+
+												</div>
+
+
+					<div class="content testimonials">
+			<!--
+				Card - Resume
+			-->
+			<div class="card-inner" id="resume-card">
+				<div class="card-wrap">
+
+					<!--
+						Resume
+					-->
+					<div class="content resume">
+
+						<!-- title -->
+						<div class="title">Resume</div>
+
+						<!-- content -->
+						<div class="row">
+
+							<!-- experience -->
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="resume-title border-line-h">
+									<div class="icon"><i class="ion ion-briefcase"></i></div>
+									<div class="name">Experience</div>
+								</div>
+								<div class="resume-items">
+									<div class="resume-item border-line-h active">
+										<div class="date">{{doctor.E1_start_to_end_date}}</div>
+										<div class="name">{{doctor.E1_workeds_as}}</div>
+
+										<p>{{doctor.E1_description}}</p>
+
+						</div>
+</div>
+
+							<!-- education -->
+							<div class="col col-d-6 col-t-6 col-m-12 border-line-v">
+								<div class="resume-title border-line-h">
+									<div class="icon"><i class="ion ion-university"></i></div>
+									<div class="name">Education</div>
+								</div>
+								<div class="resume-items">
+									<div class="resume-item border-line-h">
+										<div class="date"></div>
+										<div class="name">{{doct.level}}</div>
+										<div class="company">{{doct.Passed_year}}</div>
+										<p>{{doct.E_description}}</p>
+									</div>
+								</div>
+						</div>
+
+					</div>
+							{% endblock %}
+
+
+
+
+	<!--
+		jQuery Scripts
+	-->
+	<script src="{% static 'assets/profile/js/jquery.min.js' %}"></script>
+	<script src="{% static 'assets/profile/js/jquery.validate.js' %}"></script>
+	<script src="{% static 'assets/profile/js/jquery.magnific-popup.js' %}"></script>
+	<script src="{% static 'assets/profile/js/imagesloaded.pkgd.js' %}"></script>
+	<script src="{% static 'assets/profile/js/isotope.pkgd.js' %}"></script>
+	<script src="{% static 'assets/profile/js/jquery.slimscroll.js' %}"></script>
+	<script src="{% static 'assets/profile/js/owl.carousel.js' %}"></script>
+
+
+
+	<script src="{% static 'assets/profile/vendor/jquery/jquery.min.js' %}"></script>
+    <!-- Vendor JS-->
+    <script src="{% static 'assets/profile/vendor/select2/select2.min.js' %}"></script>
+    <script src="{% static 'assets/profile/vendor/datepicker/moment.min.js' %}"></script>
+    <script src="{% static 'assets/profile/vendor/datepicker/daterangepicker.js' %}"></script>
+
+    <!-- Main JS-->
+    <script src="{% static 'assets/profile/js/global.js' %}"></script>
+
+	<!--
+		Google map api
+	-->
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDz2w7HUaWudHwd7AWQpCL48Qs050WOn9s"></script>
+	
+	<!--
+		Main Scripts
+	-->
+	<script src="{% static 'assets/profile/js/scripts.js' %}"></script>
+	
+</body>
+
+<!-- Mirrored from bslthemes.com/ryan/demo/index-new-no-photo.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 16 Mar 2020 01:34:07 GMT -->
+</html>
