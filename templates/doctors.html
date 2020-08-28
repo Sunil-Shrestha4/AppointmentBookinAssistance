@@ -9,10 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <!-- Page Title -->
-    <title>Doctors</title>
+    <title>Appointment Booking Assistance</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="{% static 'assets/images/logo/favicon.png' %}" type="image/x-icon">
+    <link rel="shortcut icon" href="{% static 'assets/images/logo/logo.JPG' %}" type="image/x-icon">
 
     <!-- CSS Files -->
     <link rel="stylesheet" href="{% static 'assets/css/animate-3.7.0.css' %}">
@@ -22,6 +22,21 @@
     <link rel="stylesheet" href="{% static 'assets/css/jquery.datetimepicker.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/linearicons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+
+
+    <!-- for chatbot-->
+    <title>ChatBot</title>
+      <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link rel= "stylesheet" type= "text/css" href= "static/assets/chatbot/static/css/style.css">
+      <!--Main css-->
+      <link rel= "stylesheet" type= "text/css" href= "static/assets/chatbotstatic/css/materialize.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 </head>
 <body>
     <!-- Preloader Starts -->
@@ -36,20 +51,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 d-md-flex">
-                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! +1 305 708 2563</h6>
-                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> medical@example.com</h6>
-                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-mobile"></i></span> call us now! 015115015</h6>
+                        <h6 class="mr-3"><span class="mr-2"><i class="fa fa-envelope-o"></i></span> appointmentbookingassistance@gmail.com</h6>
+<!--                        <h6><span class="mr-2"><i class="fa fa-map-marker"></i></span> Find our Location</h6>-->
                     </div>
-                    <div class="col-lg-3">
-                        <div class="social-links">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                <li><a href="#"><i class="fa fa-vimeo"></i></a></li>
-                            </ul>
-                        </div>
+
                     </div>
                 </div>
             </div>
@@ -58,28 +64,28 @@
             <div class="container">
                 <div class="row align-items-center justify-content-between d-flex">
                 <div id="logo">
-                    <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="" title="" /></a>
+                    <a href="index.html"><img src="{% static 'assets/images/logo/logo.JPG' %}" width="100" height="50" alt="" title="" /></a>
+                    <style>
+    #logo{
+        width: 200px;
+        height:20px;
+    }
+
+
+
+                    </style>
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
                         <li class="menu-active"><a href="/">Home</a></li>
-                        <li><a href="departments">departments</a></li>
+<!--                        <li><a href="departments">departments</a></li>-->
                         <li><a href="doctors">doctors</a></li>
-                        <li class="menu-has-children"><a href="">Pages</a>
-                            <ul>
-                                <li><a href="about.html">about us</a></li>
-                                <li><a href="elements.html">elements</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu-has-children"><a href="">blog</a>
-                            <ul>
-                                <li><a href="blog-home.html">blog home</a></li>
-                                <li><a href="blog-details.html">blog details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="contact.html">Contact</a></li>			          				          
-                    </ul>
-                </nav><!-- #nav-menu-container -->		    		
+
+                        <span> Hello, {{request.user}} </span>
+                        <span><a href="logout">Logout </span>
+                        <span><a href="history/{{user.id}}">Apointment </span>
+                        </ul>
+
                 </div>
             </div>
         </div>
@@ -92,10 +98,12 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>Our doctors</h1>
-                    <a href="index.html">Home</a> <span>|</span> <a href="doctors.html">Doctors</a>
+                    <a href="/">Home</a> <span>|</span> <a href="doctors">Doctors</a>
                 </div>
             </div>
+<!--            -->
         </div>
+
     </section>
     <!-- Banner Area End -->
 
@@ -105,8 +113,14 @@
             <div class="row">
                 <div class="col-lg-6 offset-lg-3">
                     <div class="section-top text-center">
-                        <h2>Our specialish</h2>
-                        <p>Green above he cattle god saw day multiply under fill in the cattle fowl a all, living, tree word link available in the service for subdue fruit.</p>
+                    <div class="search-container">
+    <form method="get" action="search">
+        <h1> Search your prefer doctor</h1>
+      <input type="text" placeholder="Search.." name="search" id="search">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
                     </div>
                 </div>
             </div>
@@ -115,8 +129,9 @@
 
 <style>
 
-    {% block css %}
-         .col-md-3
+
+{% block css %}
+          .col-md-3
           {
           display: inline-block;
           margin-left:-4px;
@@ -128,9 +143,14 @@
 
           .col-md-3 img{
 
-          width: 170px;
-          height: 200px;
+          max-width: 288px;
+          height: 242px;
           }
+          .my-4{
+          font-size: 100px;
+
+          }
+
 
           body .carousel-indicator li{
           background-color: blue;
@@ -148,8 +168,7 @@
           .carousel-control-prev,
           .carousel-control-next{
           top: auto;
-          bottom: auto;
-          padding-top: 222px;
+bottom: auto;
           }
            body .no-padding{
            padding-left: 0,
@@ -157,13 +176,15 @@
            }
  {% endblock %}
 
+
 </style>
 {% block body %}
 <div class="container">
 
     <!--Slideshow starts here -->
     {% for doctor, range, nSlides in allDocts %}
-    <h5 class="my-4"> {{doctor.0.department}}</h5>
+    <h5  class="my-4"> {{doctor.0.department}}</h5>
+
     <div class="row">
 <div id="demo{{forloop.counter}}" class="col carousel slide my-3" data-ride="carousel">
     <ul class="carousel-indicators">
@@ -186,8 +207,10 @@
             <img src='/media/{{i.img}}' class="card-img-top" alt="...">
             <div class="card-body">
               <h5 class="card-title">{{i.name}}</h5>
-              <p class="card-text">{{i.desc|slice:"0:53"}}...</p>
-              <a href="/abc/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">View Profile</button></a>
+              <p class="card-text">{{i.desc|slice:"0:100"}}...</p>
+              <a href="/doctor_profile/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">View Profile</button></a>
+                <a href="/bookpage/{{i.id}}"><button id="rv{{i.id}}" class="btn btn-primary cart">Book Now</button></a>
+
             </div>
           </div>
         </div>
@@ -213,96 +236,34 @@
     {% endfor %}
 </div>
  {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!--
+        </div>
     </section>
 
-
-    <!-- Footer Area Starts -->
-    <footer class="footer-area section-padding">
-        <div class="footer-widget">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-2 col-lg-3">
-                        <div class="single-widget-home mb-5 mb-lg-0">
-                            <h3 class="mb-4">top products</h3>
-                            <ul>
-                                <li class="mb-2"><a href="#">managed website</a></li>
-                                <li class="mb-2"><a href="#">managed reputation</a></li>
-                                <li class="mb-2"><a href="#">power tools</a></li>
-                                <li><a href="#">marketing service</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-5 offset-xl-1 col-lg-6">
-                        <div class="single-widget-home mb-5 mb-lg-0">
-                            <h3 class="mb-4">newsletter</h3>
-                            <p class="mb-4">You can trust us. we only send promo offers, not a single.</p>  
-<!--                            <form action="#">-->
-<!--                                <input type="email" placeholder="Your email here" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your email here'" required>-->
-<!--                                <button type="submit" class="template-btn">subscribe now</button>-->
-<!--                            </form>-->
-                        </div>
-                    </div>
-                    <div class="col-xl-3 offset-xl-1 col-lg-3">
-                        <div class="single-widge-home">
-                            <h3 class="mb-4">instagram feed</h3>
-                            <div class="feed">
-                                <img src="{% static 'assets/images/feed1.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed2.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed3.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed4.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed5.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed6.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed7.jpg' %}" alt="feed">
-                                <img src="{% static 'assets/images/feed8.jpg' %}" alt="feed">
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
+ <div class="container">
+         <div class="widget">
+            <div class="chat_header">
+               <!--Add the name of the bot here -->
+               <span style="color:white;margin-left: 5px;">Appointment Assistance </span>
+               <span style="color:white;margin-right: 5px;float:right;margin-top: 5px;" id="close">
+               <i class="material-icons">close</i>
+               </span>
             </div>
-        </div>
-        <div class="footer-copyright">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 col-md-6">
-                        <span>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</span>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="social-icons">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <!--Chatbot contents goes here -->
+            <div class="chats" id="chats">
+               <div class="clearfix"></div>
             </div>
-        </div>
+            <!--user typing indicator -->
+            <div class="keypad" >
+               <input type="text" id="keypad" class="usrInput browser-default" placeholder="Type a message..." autocomplete="off">
+            </div>
+         </div>
+         <!--bot widget -->
+         <div class="profile_div" id="profile_div">
+            <img class="imgProfile" src="{% static 'assets/chatbot/static/img/botAvatar.png' %}"/>
+         </div>
+      </div>
+
+
     </footer>
     <!-- Footer Area End -->
 
@@ -318,5 +279,32 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
     <script src="{% static 'assets/js/main.js' %}"></script>
 
 
+
+<!--JavaScript at end of body for optimized loading-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script type="text/javascript" src="static/assets/chatbot/static/js/materialize.min.js"></script>
+      <!--Main Script -->
+      <script type= "text/javascript" src="static/assets/chatbot/static/js/script.js"></script>
+
+
+
+
+
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

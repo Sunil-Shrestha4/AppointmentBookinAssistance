@@ -1,0 +1,199 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - sick
+  - heart
+  - eye
+  - eyeconfirm
+  - ellaborate
+  - heartconfirm
+  - liver
+  - liverconfirm
+  - dental
+  - dentalconfirm
+  - dentalfewdays
+  - dental1month
+  - dentallongtime
+  - liverfewdays
+  - liver1month
+  - liverlongtime
+  - heartfewdays
+  - heart1month
+  - heartlongtime
+  - help
+  - nosethroatear
+  - noseconfirm
+
+
+
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you? ,I am your bot to help you to book appointment  with  your prefered doctor "
+  - text: "please tell me about your symptoms or problems that will help me to select doctors"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "http://127.0.0.1:8000/RasaChatbot/7/"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_sick:
+    - text: "What is  your diseases related with"
+      buttons:
+      - title: "stomach"
+        payload: "/affirm"
+      - title: "head"
+        payload: "/affirm"
+
+  utter_heart:
+    - text: "Is your problems related with"
+      buttons:
+        - title: "Heart"
+          payload: "/heartconfirm"
+        - title: "Other parts"
+          payload: "/ellaborate"
+
+
+  utter_heart_book:
+      - text: "How long are you suffering from this problem ? "
+        buttons:
+          - title: "Just a few days ago"
+            payload: "/heartfewdays"
+          - title: "1 months ago"
+            payload: "/heart1month"
+          - title: "From a long time ago"
+            payload: "/heartlongtime"
+
+
+
+  utter_heart_fewdays:
+    - text: "It seems like you have just started having heart problem, you'd better book appointment with Om Murti Anil"
+
+  utter_heart_1month:
+      - text: "It seems like you have been suffering from heart problem for more than a month , you'd better book appointment with Om Murti Anil"
+
+  utter_heart_longtime:
+      - text: "It seems like have been suffering from heart problem from long time. You need specialist, you'd better book appointment with Om Murti Anil "
+
+
+
+
+
+
+
+  utter_eye:
+    - text: "What is your problem related with"
+      buttons:
+        - title: "Eye"
+          payload: "/eyeconfirm"
+        - title: "Other parts"
+          payload: "/ellaborate"
+
+  utter_eye_book:
+    - text: "you had better book appointment with Dr. Irina Kansakar (Tuladhar)"
+
+  utter_ellaborate:
+    - text: "Would you please tell me more about your problems"
+
+
+
+
+
+
+
+  utter_liver:
+    - text: "What is your problem related with"
+      buttons:
+        - title: "Liver and Stomach"
+          payload: "/liverconfirm"
+        - title: "Other parts"
+          payload: "/ellaborate"
+
+  utter_liver_book:
+      - text: "How long are you suffering from this problem ? "
+        buttons:
+          - title: "Just a few days ago"
+            payload: "/liverfewdays"
+          - title: "1 months ago"
+            payload: "/liver1month"
+          - title: "From a long time ago"
+            payload: "/liverlongtime"
+
+
+
+  utter_liver_fewdays:
+    - text: "It seems like you have just started having liver problem, you'd better book appointment with Dr. Akhilesh Kumar Kasyap"
+
+  utter_liver_1month:
+      - text: "It seems like you have been suffering from liver problem for more than a month , you'd better book appointment with Vivek Sharma"
+
+  utter_liver_longtime:
+      - text: "It seems like have been suffering from liver problem from long time. You need specialist, you'd better book appointment with Dr. Bidur Dhakal"
+
+
+
+  utter_dental:
+    - text: "What is your problem related with"
+      buttons:
+        - title: "Teeth or mouth"
+          payload: "/dentalconfirm"
+        - title: "Other parts"
+          payload: "/ellaborate"
+
+  utter_dental_book:
+    - text: "How long are you suffering from this problem?"
+      buttons:
+        - title: "Just a few days ago"
+          payload: "/dentalfewdays"
+        - title: "1 months ago"
+          payload: "/dental1month"
+        - title: "From a long time ago"
+          payload: "/dentallongtime"
+
+  utter_dental_fewdays:
+    - text: "It seems like have been suffering from dental problem is just started, you'd better book appointment with Dr. Bidur Dhakal"
+
+  utter_dental_1month:
+    - text: "It seems like you have been suffering from dental problem for more than a month , you'd better book appointment with Sujal Tandukar"
+
+  utter_dental_longtime:
+    - text: "It seems like have been suffering from dental problem from long time. You need specialist, you'd better book appointment with Kiran Bhusal or Sudipa Thapa"
+
+  utter_help:
+    - text: "Please tell me about your problem? "
+
+
+  utter_nose:
+    - text: "What is your problem related with"
+      buttons:
+        - title: "Nose Throat Ear"
+          payload: "/noseconfirm"
+        - title: "Other parts"
+          payload: "/ellaborate"
+
+  utter_nose_book:
+    - text: "Please book appointment with Rajita Gurung "
+
+
+
+
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

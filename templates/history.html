@@ -1,0 +1,48 @@
+{% extends 'search.html' %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<h2>My Appointment History</h2>
+
+<table>
+  <tr>
+    <th>Doctor Name</th>
+    <th>Department</th>
+    <th>Date</th>
+  </tr>
+    {% for i in details %}
+  <tr>
+    <td>{{i.Doctor_name}}</td>
+    <td>{{i.Department}}</td>
+    <td>{{i.Date_and_time}}</td>
+  </tr>
+    {% endfor %}
+  {% endblock %}
+
+</table>
+</body>
+</html>
+

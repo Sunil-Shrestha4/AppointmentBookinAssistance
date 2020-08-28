@@ -1,0 +1,172 @@
+{% extends 'search.html' %}
+
+{% block title%} {{doctor.name}} - My Awesome Cart{% endblock %}
+{% block body %}
+<div class="container my-4">
+    <div class="row">
+    <div class="col-md-4">
+    <div class="row">
+        <img src="/media/{{doctor.img}}" width="233px" height="385px">
+    </div>
+<!--        <div class="row">-->
+<!--            <a href="/efg/{{i.id}}"><button id="qv{{i.id}}" class="btn btn-primary cart">View Profile</button></a>-->
+<!--            <a href="/datetime-picker" class="btn btn-primary cart">take appointment</a>-->
+<!--&lt;!&ndash; <a href="datetime-picker",><button id="qv{{i.id}}" class="btn btn-primary cart">Book Appointment</button></a>&ndash;&gt;-->
+<!--&lt;!&ndash;            <button class="datetime-picker">Add To Cart</button></a>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;            <a href="/datetime-picker/{{i.id}}",><button id="qv{{i.id}}" class="btn btn-primary cart">Book Appointment</button></a>&ndash;&gt;&ndash;&gt;-->
+<!--        </div>-->
+
+    </div>
+
+    <div class="col-md-8">
+        <b>About</b>
+        <h5>Name:{{doctor.name}}</h5>
+        <h5>Age:{{doctor.age}}</h5>
+        <h5>Phone Number:{{doctor.phone_number}}</h5>
+        <h5>Email:{{doctor.email}}</h5>
+        <br>
+        <b>Department</b>
+        <p>{{doctor.department}}</p>
+        <br>
+        <b>Specialist</b>
+        <p>{{doctor.Specialist}}</p>
+        <br>
+
+        <b>Education</b>
+        <h5>{{doctor.level}}</h5>
+       <h5>Passed Year: {{doctor.Passed_year}}</h5>
+        <h5>{{doctor.E_description}}</h5>
+
+        <b>Expericence</b>
+        <h5>{{doctor.Experience}}</h5>
+
+
+
+
+
+
+    </div>
+    </div>
+
+
+</div>
+<!DOCTYPE html>
+<Html>
+<head>
+<title>Book Appointment</title>
+
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css">
+	<style type="text/css">
+		.container {
+			margin-top: 40px;
+		}
+		.btn-primary {
+			width: 100%;
+		}
+	</style>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/2.14.1/moment.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+
+	<script type='text/javascript'>
+		$( document ).ready(function() {
+			$('#datetimepicker1').datetimepicker({
+            format:'YYYY-MM-DD HH:mm'
+         });
+		});
+	</script>
+
+</head>
+<body>
+
+<div class="container">
+   <div class="panel panel-primary">
+      <div class="panel-heading">Book an Appointent with:{{doctor.name}}</div>
+      <form action = 'book' method="POST">
+                        {% csrf_token %}
+         <input type ="hidden" name ="Doctor_name" id="Doctor_name">
+         <input type="hidden" name="user_id" id="user_id">
+<!--         <input type ="hidden" name ="o_amount" id=" o_amount">-->
+<!--         <input type ="hidden" name ="user_id" id="user_id">-->
+
+      <div class="panel-body">
+         <div class="row">
+            <div class="col-md-6">
+<!--               <span id="user_id2">{{user.id}}</span>-->
+               <div class="form-group">
+                  <label class="control-label">Doctor name </label>
+                  <input type="text" class="form-control" name="doctor_name" id="doctor_name"value="{{doctor.name}}">
+                  <label class="control-label">ID</label>
+                  <input type="text" class="form-control" name="user_id" id="doctor_name"value="{{user.id}}">
+                  <label class="control-label">First Name <span style="color: red; font-weight: bold;">*</span></label>
+                  <input type="text" class="form-control" name="fname" id="fname"required>
+                  <label class="control-label">Address <span style="color: red; font-weight: bold;">*</span></label>
+                  <input type="text" class="form-control" name="adress" id="fname"required>
+                      <label class="control-label">Gender <span style="color: red; font-weight: bold;">*</span></label>
+                  <input type="text" class="form-control" name="adress" id="fname"required>
+
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="form-group">
+                  <label class="control-label">Department</label>
+                  <input type="text" class="form-control" name="department" id="department" value="{{doctor.department}}">
+
+                   <label class="control-label">Email <span style="color: red; font-weight: bold;">*</span></label>
+                  <input type="text" class="form-control" name="email" id="email"required>
+                   <label class="control-label">Last Name <span style="color: red; font-weight: bold;">*</span></label>
+
+                  <input type="text" class="form-control" name="lname" id="lname"required>
+                  <label class="control-label">Phone Number <span style="color: red; font-weight: bold;">*</span></label>
+                  <input type="text" class="form-control" name="phone" id="lname"required>
+                   <div class='col-md-6'>
+               <div class="form-group">
+                  <label class="control-label">Appointment Time <span style="color: red; font-weight: bold;">*</span></label>
+                  <div class='input-group date' id='datetimepicker1'>
+                     <input type='text' class="form-control" name="date_time" required/>
+                     <span class="input-group-addon">
+                     <span class="glyphicon glyphicon-calendar"></span>
+                     </span>
+                  </div>
+               </div>
+            </div>
+               </div>
+            </div>
+
+
+
+         </div>
+         <input type="submit" class="btn btn-primary" value="Book Now">
+      </div>
+   </div>
+</div>
+</form>
+
+
+<h3 align ="center">
+   <font color ="#6495ed" face ="chiller">
+      {{message}}
+   </font>
+</h3>
+
+{% endblock %}
+{% block js %}
+<script>
+
+
+{% if thank %}
+alert('Thanks for booking appointment with {{doctor.name}}. Please check your email, we have send email of confirmation ');
+document.location = "/doctors";
+{% endif %}
+</script>
+{% endblock %}
+</body>
+
+
+
+
+
+

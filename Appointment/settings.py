@@ -86,9 +86,9 @@ WSGI_APPLICATION = 'Appointment.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fyp',
+        'NAME': 'Appointment',
         'USER':'postgres',
-        'PASSWORD':'s716751',
+        'PASSWORD':'716751',
         'HOST':'localhost'
     }
 }

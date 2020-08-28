@@ -3,18 +3,20 @@ from . import views
 
 urlpatterns = [
     path("",views.index, name="index"),
-    #path("login",views.login,),
-    # path("register",views.register,)
+    path("login", views.user_login, name="login"),
+    path("register", views.register, name="register"),
+    path("logout", views.logoutUser, name="logout"),
+    path("history/<int:id>", views.b_history, name="history"),
     path("doctors",views.doctors, name="doctors"),
-    path("departments",views.departments, name="departments"),
     path("about",views.about, name="about"),
-    path("elements",views.elements, name="elements"),
-    path("blog-details",views.blog_details, name="blog-details"),
-    path("blog-home",views.blog_home, name="blog-details"),
+    path("login",views.login, name="login"),
     path("contact",views.contact, name="contact"),
-    path("abc/<int:myid>/",views.view_profile, name="view_profile"),
-    path("datetime-picker",views.datetime_picker, name="datetime_picker"),
-    #path("book",views.book, name="book")
+    path("bookpage/<int:myid>/",views.bookpage, name="bookpage"),
+    path("doctor_profile/<int:myid>/",views.doctor_profile, name="bookpage"),
+    path("bookpage/<int:myid>/book",views.book, name="book"),
+    path("doctor_profile/<int:myid>/book",views.book, name="book"),
+    path ("search/",views.search, name="search"),
+    path ("doctor_profile/<int:myid>/doctors",views.doctors,name="doctors"),
 
 
 
